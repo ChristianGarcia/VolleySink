@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
         private View mDownloadButton;
 
         public PlaceholderFragment() {
+            
         }
 
         @Override
@@ -72,7 +73,6 @@ public class MainActivity extends Activity {
         }
 
         private void downloadJsonData() {
-
         }
 
 

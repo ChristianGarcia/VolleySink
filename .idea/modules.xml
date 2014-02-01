@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VolleyTest.iml" filepath="$PROJECT_DIR$/VolleyTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VolleyTest/VolleyTest-VolleyTest.iml" filepath="$PROJECT_DIR$/VolleyTest/VolleyTest-VolleyTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VolleySink.iml" filepath="$PROJECT_DIR$/VolleySink.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VolleySink/VolleySink-VolleySink.iml" filepath="$PROJECT_DIR$/VolleySink/VolleySink-VolleySink.iml" />
     </modules>
   </component>
 </project>
