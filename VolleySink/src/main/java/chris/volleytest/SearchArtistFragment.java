@@ -78,6 +78,7 @@ public class SearchArtistFragment extends Fragment implements Response.Listener<
                 mListAdapter = new ArrayAdapter<Artist>(activity, android.R.layout.simple_list_item_1, android.R.id.text1);
                 updateListElements();
                 listView.setAdapter(mListAdapter);
+                listView.setEmptyView(rootView.findViewById(android.R.id.empty));
             }
         }
         return rootView;
