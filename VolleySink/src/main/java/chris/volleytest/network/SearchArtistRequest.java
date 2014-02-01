@@ -26,6 +26,7 @@ public class SearchArtistRequest extends Request<ArtistResults> {
     }
 
     private static String buildUrl(String query) {
+        @SuppressWarnings("ConstantConditions")
         final String url = ApiUtils.buildUrl()
                                    .appendPath("search")
                                    .appendQueryParameter("q", query)
