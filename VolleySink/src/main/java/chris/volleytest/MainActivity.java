@@ -1,13 +1,9 @@
 package chris.volleytest;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class MainActivity extends Activity {
 
@@ -18,7 +14,7 @@ public class MainActivity extends Activity {
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                                .add(R.id.container, new PlaceholderFragment())
+                                .add(R.id.container, new SearchArtistFragment())
                                 .commit();
         }
     }
@@ -44,38 +40,5 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        private View mJsonText;
-        private View mDownloadButton;
-
-        public PlaceholderFragment() {
-            
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            if (rootView != null) {
-                mJsonText = rootView.findViewById(R.id.json_text);
-                mDownloadButton = rootView.findViewById(R.id.btn_download);
-                mDownloadButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        downloadJsonData();
-                    }
-                });
-            }
-            return rootView;
-        }
-
-        private void downloadJsonData() {
-        }
-
-
-    }
 
 }

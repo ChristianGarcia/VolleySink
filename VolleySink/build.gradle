@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.1"
+    buildToolsVersion '19.0.1'
 
     defaultConfig {
         minSdkVersion 14
@@ -20,4 +20,5 @@ android {
 
 dependencies {
     compile files('libs/volley.jar')
+    compile 'com.google.code.gson:gson:2.2.4'
 }
