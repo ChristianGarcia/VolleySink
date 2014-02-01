@@ -2,6 +2,7 @@ package chris.volleytest;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -103,12 +105,16 @@ public class SearchArtistFragment extends Fragment implements Response.Listener<
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-
+        Context context = getActivity();
+        if (context != null) {
+            Toast.makeText(context, "Error retrieving results" + volleyError, Toast.LENGTH_SHORT)
+                 .show();
+        }
     }
 
     @Override
     public void onResponse(ArtistResults artistResults) {
-        mResults = artistResults.results;
+        mResults = artistResults.results != null ? artistResults.results : new ArrayList<Artist>();
         updateListElements();
     }
 

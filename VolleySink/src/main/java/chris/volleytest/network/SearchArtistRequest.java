@@ -21,8 +21,18 @@ public class SearchArtistRequest extends Request<ArtistResults> {
     private final Response.Listener<ArtistResults> successListener;
 
     public SearchArtistRequest(String query, Response.Listener<ArtistResults> successListener, Response.ErrorListener errorListener) {
-        super(Method.GET, "http://api.discogs.com/database/search?q=" + query, errorListener);
+        super(Method.GET, buildUrl(query), errorListener);
         this.successListener = successListener;
+    }
+
+    private static String buildUrl(String query) {
+        final String url = ApiUtils.buildUrl()
+                                   .appendPath("search")
+                                   .appendQueryParameter("q", query)
+                                   .appendQueryParameter("type", "artist")
+                                   .build()
+                                   .toString();
+        return url;
     }
 
     @Override
