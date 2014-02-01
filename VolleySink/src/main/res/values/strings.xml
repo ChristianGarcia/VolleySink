@@ -4,5 +4,7 @@
     <string name="app_name">VolleySink</string>
     <string name="hello_world">No JSON downloaded</string>
     <string name="action_settings">Settings</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Enter artist name</string>
 
 </resources>
