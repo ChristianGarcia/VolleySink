@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import chris.volleytest.network.SearchArtistRequest;
@@ -31,9 +32,10 @@ import chris.volleytest.network.model.ArtistResults;
  */
 public class SearchArtistFragment extends Fragment implements Response.Listener<ArtistResults>, Response.ErrorListener {
 
-    private RequestQueue         mRequestQueue;
-    private ArrayAdapter<Artist> mListAdapter;
-    private EditText             mEtSearch;
+    private RequestQueue         mRequestQueue = null;
+    private ArrayAdapter<Artist> mListAdapter  = null;
+    private EditText             mEtSearch     = null;
+    private List<Artist>         mResults      = new ArrayList<Artist>();
 
     public SearchArtistFragment() {
     }
@@ -43,6 +45,12 @@ public class SearchArtistFragment extends Fragment implements Response.Listener<
         super.onAttach(activity);
         mRequestQueue = Volley.newRequestQueue(activity);
 
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     @Override
@@ -66,6 +74,7 @@ public class SearchArtistFragment extends Fragment implements Response.Listener<
             final Activity activity = getActivity();
             if (activity != null) {
                 mListAdapter = new ArrayAdapter<Artist>(activity, android.R.layout.simple_list_item_1, android.R.id.text1);
+                updateListElements();
                 listView.setAdapter(mListAdapter);
             }
         }
@@ -99,8 +108,12 @@ public class SearchArtistFragment extends Fragment implements Response.Listener<
 
     @Override
     public void onResponse(ArtistResults artistResults) {
-        final List<Artist> results = artistResults.results;
+        mResults = artistResults.results;
+        updateListElements();
+    }
+
+    private void updateListElements() {
         mListAdapter.clear();
-        mListAdapter.addAll(results);
+        mListAdapter.addAll(mResults);
     }
 }
