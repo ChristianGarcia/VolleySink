@@ -1,4 +1,4 @@
-package chris.volleytest;
+package chris.volleysink;
 
 import android.app.Activity;
 import android.app.SearchManager;
@@ -19,9 +19,9 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
-import chris.volleytest.network.SearchArtistRequest;
-import chris.volleytest.network.model.Artist;
-import chris.volleytest.network.model.ArtistResults;
+import chris.volleysink.network.SearchArtistRequest;
+import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.ArtistResults;
 
 public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener {
 

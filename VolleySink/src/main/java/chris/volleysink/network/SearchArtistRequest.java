@@ -1,4 +1,4 @@
-package chris.volleytest.network;
+package chris.volleysink.network;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -10,7 +10,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
-import chris.volleytest.network.model.ArtistResults;
+import chris.volleysink.network.model.ArtistResults;
 
 /**
  * Created by christian on 01/02/2014.

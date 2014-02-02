@@ -1,4 +1,4 @@
-package chris.volleytest;
+package chris.volleysink;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -12,7 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import chris.volleytest.network.model.Artist;
+import chris.volleysink.network.model.Artist;
 
 /**
  * Created by christian on 01/02/2014.

@@ -1,4 +1,4 @@
-package chris.volleytest.network.model;
+package chris.volleysink.network.model;
 
 /**
  * Created by christian on 01/02/2014.
