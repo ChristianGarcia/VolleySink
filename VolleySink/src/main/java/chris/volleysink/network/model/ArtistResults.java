@@ -1,4 +1,4 @@
-package chris.volleytest.network.model;
+package chris.volleysink.network.model;
 
 import java.util.List;
 
