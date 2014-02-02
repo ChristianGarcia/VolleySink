@@ -52,6 +52,7 @@ public class SearchArtistFragment extends Fragment {
 
     public void updateResults(List<Artist> results) {
         mResults = new ArrayList<Artist>(results);
-        mListAdapter.notifyDataSetChanged();
+        mListAdapter.clear();
+        mListAdapter.addAll(mResults);
     }
 }

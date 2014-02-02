@@ -93,7 +93,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-        Toast.makeText(this, "Error retrieving results" + volleyError, Toast.LENGTH_SHORT)
+        Toast.makeText(this, "Error retrieving results" + volleyError, Toast.LENGTH_LONG)
              .show();
     }
 
