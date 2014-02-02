@@ -22,6 +22,7 @@ import java.util.List;
 import chris.volleysink.network.SearchArtistRequest;
 import chris.volleysink.network.model.Artist;
 import chris.volleysink.network.model.ArtistResults;
+import chris.volleytest.R;
 
 public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener {
 
