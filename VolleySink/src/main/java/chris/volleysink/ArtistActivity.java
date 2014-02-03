@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import chris.volleytest.R;
+import chris.volleysink.R;
 
 public class ArtistActivity extends Activity {
 
