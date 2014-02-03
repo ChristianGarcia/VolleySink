@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chris.volleysink.network.model.Artist;
-import chris.volleytest.R;
+import chris.volleysink.R;
 
 /**
  * Created by christian on 01/02/2014.
