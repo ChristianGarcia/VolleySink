@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/VolleySink.iml" filepath="$PROJECT_DIR$/VolleySink.iml" />
       <module fileurl="file://$PROJECT_DIR$/VolleySink/VolleySink-VolleySink.iml" filepath="$PROJECT_DIR$/VolleySink/VolleySink-VolleySink.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VolleySinkProject.iml" filepath="$PROJECT_DIR$/VolleySinkProject.iml" />
     </modules>
   </component>
 </project>
