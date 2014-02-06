@@ -7,7 +7,7 @@
               android:paddingTop="@dimen/activity_vertical_margin"
               android:paddingBottom="@dimen/activity_vertical_margin"
               android:orientation="vertical"
-              tools:context="chris.volleysink.SearchArtistActivity$PlaceholderFragment">
+              tools:context="chris.volleysink.ui.SearchArtistActivity$PlaceholderFragment">
 
     <ListView
         android:id="@+id/listView"

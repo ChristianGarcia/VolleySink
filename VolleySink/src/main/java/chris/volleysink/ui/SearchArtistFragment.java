@@ -1,4 +1,4 @@
-package chris.volleysink;
+package chris.volleysink.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import chris.volleysink.R;
 import chris.volleysink.network.model.Result;
 
 /**

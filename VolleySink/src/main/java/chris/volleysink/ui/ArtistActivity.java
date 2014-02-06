@@ -1,15 +1,15 @@
-package chris.volleysink;
+package chris.volleysink.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 
-import chris.volleysink.network.model.Result;
+import chris.volleysink.R;
 
-public class ArtistActivity extends Activity implements SearchArtistFragment.OnResultItemClickListener {
+public class ArtistActivity extends Activity {
+
+    public static final String EXTRA_ID = "extra_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +43,4 @@ public class ArtistActivity extends Activity implements SearchArtistFragment.OnR
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Object item = adapterView.getItemAtPosition(position);
-        if (item instanceof Result) {
-            Result artist = (Result) item;
-
-        }
-    }
 }
