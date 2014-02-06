@@ -38,8 +38,9 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
+            SearchArtistFragment searchArtistFragment = SearchArtistFragment.newInstance(this);
             getFragmentManager().beginTransaction()
-                                .add(R.id.container, new SearchArtistFragment(), TAG_FRAGMENT_SEARCH)
+                                .add(R.id.container, searchArtistFragment, TAG_FRAGMENT_SEARCH)
                                 .commit();
         }
 
@@ -52,6 +53,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        // Handle intent for Search
         handleIntent(intent);
     }
 
@@ -78,6 +80,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -86,13 +89,13 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
 
     @Override
     public void onStop() {
-        super.onStop();
         mRequestQueue.cancelAll(new RequestQueue.RequestFilter() {
             @Override
             public boolean apply(Request<?> request) {
                 return true;
             }
         });
+        super.onStop();
     }
 
     @Override

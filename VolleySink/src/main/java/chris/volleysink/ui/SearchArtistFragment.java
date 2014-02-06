@@ -30,6 +30,12 @@ public class SearchArtistFragment extends Fragment {
     public SearchArtistFragment() {
     }
 
+    public static SearchArtistFragment newInstance(OnResultItemClickListener onResultItemClickListener) {
+        SearchArtistFragment searchArtistFragment = new SearchArtistFragment();
+        searchArtistFragment.setOnResultItemClickListener(onResultItemClickListener);
+        return searchArtistFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,23 +46,35 @@ public class SearchArtistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         if (rootView != null) {
-
-            // list view
-            ListView listView = (ListView) rootView.findViewById(R.id.listView);
-            final Activity activity = getActivity();
-            if (activity != null) {
-                mListAdapter = new ArrayAdapter<Result>(activity, android.R.layout.simple_list_item_1, android.R.id.text1, mResults);
-                listView.setAdapter(mListAdapter);
-                View emptyView = rootView.findViewById(android.R.id.empty);
-                listView.setEmptyView(emptyView);
-                if (mOnResultItemClickListener != null) {
-                    listView.setOnItemClickListener(mOnResultItemClickListener);
-                }
-            }
+            setUpListView(rootView);
         }
         return rootView;
     }
 
+    private void setUpListView(View rootView) {
+        ListView listView = (ListView) rootView.findViewById(R.id.listView);
+        final Activity activity = getActivity();
+        if (activity != null) {
+            // Adapter
+            mListAdapter = new ArrayAdapter<Result>(activity, android.R.layout.simple_list_item_1, android.R.id.text1, mResults);
+            listView.setAdapter(mListAdapter);
+
+            // Empty view
+            View emptyView = rootView.findViewById(android.R.id.empty);
+            listView.setEmptyView(emptyView);
+
+            // Item click listener
+            if (mOnResultItemClickListener != null) {
+                listView.setOnItemClickListener(mOnResultItemClickListener);
+            }
+        }
+    }
+
+    /**
+     * Replaces the results in the {@link ListView} with the given results
+     *
+     * @param results the list of results to be shown
+     */
     public void updateResults(List<Result> results) {
         mResults = new ArrayList<Result>(results);
         mListAdapter.clear();
