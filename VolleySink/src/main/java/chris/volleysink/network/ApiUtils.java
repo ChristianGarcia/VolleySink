@@ -7,7 +7,7 @@ import android.net.Uri;
  */
 public class ApiUtils {
 
-    public static Uri.Builder buildUrl() {
+    public static Uri.Builder builBasedUrl() {
         return new Uri.Builder().scheme("http")
                                 .authority("api.discogs.com")
                                 .appendPath("database");

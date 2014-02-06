@@ -10,24 +10,24 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
-import chris.volleysink.network.model.ArtistResults;
+import chris.volleysink.network.model.Results;
 
 /**
  * Created by christian on 01/02/2014.
  * <p/>
  * Get Request to search artists
  */
-public class SearchArtistRequest extends Request<ArtistResults> {
-    private final Response.Listener<ArtistResults> successListener;
+public class SearchArtistRequest extends Request<Results> {
+    private final Response.Listener<Results> successListener;
 
-    public SearchArtistRequest(String query, Response.Listener<ArtistResults> successListener, Response.ErrorListener errorListener) {
+    public SearchArtistRequest(String query, Response.Listener<Results> successListener, Response.ErrorListener errorListener) {
         super(Method.GET, buildUrl(query), errorListener);
         this.successListener = successListener;
     }
 
     private static String buildUrl(String query) {
         @SuppressWarnings("ConstantConditions")
-        final String url = ApiUtils.buildUrl()
+        final String url = ApiUtils.builBasedUrl()
                                    .appendPath("search")
                                    .appendQueryParameter("q", query)
                                    .appendQueryParameter("type", "artist")
@@ -37,11 +37,11 @@ public class SearchArtistRequest extends Request<ArtistResults> {
     }
 
     @Override
-    protected Response<ArtistResults> parseNetworkResponse(NetworkResponse response) {
+    protected Response<Results> parseNetworkResponse(NetworkResponse response) {
         try {
             String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
             Gson gson = new Gson();
-            return Response.success(gson.fromJson(jsonString, ArtistResults.class), HttpHeaderParser.parseCacheHeaders(response));
+            return Response.success(gson.fromJson(jsonString, Results.class), HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));
         } catch (JsonSyntaxException e) {
@@ -50,7 +50,7 @@ public class SearchArtistRequest extends Request<ArtistResults> {
     }
 
     @Override
-    protected void deliverResponse(ArtistResults artistResults) {
-        successListener.onResponse(artistResults);
+    protected void deliverResponse(Results results) {
+        successListener.onResponse(results);
     }
 }
