@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="chris.volleysink.SearchArtistActivity"
+            android:name=".ui.SearchArtistActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -27,7 +27,7 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name="chris.volleysink.ArtistActivity"
+            android:name=".ui.ArtistActivity"
             android:label="@string/title_activity_artist"
             android:parentActivityName="chris.volleytest.SearchArtistActivity" >
             <meta-data

@@ -1,4 +1,4 @@
-package chris.volleysink;
+package chris.volleysink.ui;
 
 import android.app.Activity;
 import android.app.SearchManager;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -19,11 +21,13 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
+import chris.volleysink.R;
 import chris.volleysink.network.SearchArtistRequest;
-import chris.volleysink.network.model.Result;
 import chris.volleysink.network.model.ArtistResults;
+import chris.volleysink.network.model.Result;
+import chris.volleysink.util.IntentUtils;
 
-public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener {
+public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener, SearchArtistFragment.OnResultItemClickListener {
 
     public static final String       TAG_FRAGMENT_SEARCH = "fragment_search";
     private             RequestQueue mRequestQueue       = null;
@@ -101,6 +105,15 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     public void onResponse(ArtistResults artistResults) {
         final List<Result> results = artistResults.results != null ? artistResults.results : new ArrayList<Result>();
         updateResults(results);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Object item = adapterView.getItemAtPosition(position);
+        if (item instanceof Result) {
+            Result result = (Result) item;
+            IntentUtils.openArtist(this, result.getId());
+        }
     }
 
     private void handleIntent(Intent intent) {

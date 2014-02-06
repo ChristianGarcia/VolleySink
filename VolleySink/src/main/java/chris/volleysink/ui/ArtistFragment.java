@@ -1,4 +1,4 @@
-package chris.volleysink;
+package chris.volleysink.ui;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import chris.volleysink.R;
 
 /**
  * Fragment that holds the view of the Result detail
