@@ -9,5 +9,5 @@ import java.util.List;
  */
 public class ArtistResults {
 
-    public List<Artist> results;
+    public List<Result> results;
 }

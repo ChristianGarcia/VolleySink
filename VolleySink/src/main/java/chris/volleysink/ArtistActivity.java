@@ -1,17 +1,15 @@
 package chris.volleysink;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 
-import chris.volleysink.R;
+import chris.volleysink.network.model.Result;
 
-public class ArtistActivity extends Activity {
+public class ArtistActivity extends Activity implements SearchArtistFragment.OnResultItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +18,7 @@ public class ArtistActivity extends Activity {
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                                .add(R.id.container, new PlaceholderFragment())
+                                .add(R.id.container, new ArtistFragment())
                                 .commit();
         }
     }
@@ -45,19 +43,12 @@ public class ArtistActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Object item = adapterView.getItemAtPosition(position);
+        if (item instanceof Result) {
+            Result artist = (Result) item;
 
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_artist, container, false);
-            return rootView;
         }
     }
-
 }
