@@ -3,11 +3,11 @@ package chris.volleysink.network.model;
 import java.util.List;
 
 /**
- * Created by christian on 01/02/2014.
- * <p/>
- * ArtistResults model
+ * Results model for the DiscoGS response
+ *
+ * @author Christian
  */
-public class ArtistResults {
+public class Results {
 
     public List<Result> results;
 }
