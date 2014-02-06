@@ -12,25 +12,21 @@ import android.widget.AdapterView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import chris.volleysink.R;
-import chris.volleysink.network.SearchArtistRequest;
-import chris.volleysink.network.model.ArtistResults;
 import chris.volleysink.network.model.Result;
+import chris.volleysink.network.model.Results;
 import chris.volleysink.util.IntentUtils;
+import chris.volleysink.volley.RequestManager;
 
-public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener, SearchArtistFragment.OnResultItemClickListener {
+public class SearchArtistActivity extends Activity implements Response.Listener<Results>, Response.ErrorListener, SearchArtistFragment.OnResultItemClickListener {
 
-    public static final String       TAG_FRAGMENT_SEARCH = "fragment_search";
-    private             RequestQueue mRequestQueue       = null;
+    public static final String FRAGMENT_SEARCH = "fragment_search";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +36,9 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
         if (savedInstanceState == null) {
             SearchArtistFragment searchArtistFragment = SearchArtistFragment.newInstance(this);
             getFragmentManager().beginTransaction()
-                                .add(R.id.container, searchArtistFragment, TAG_FRAGMENT_SEARCH)
+                                .add(R.id.container, searchArtistFragment, FRAGMENT_SEARCH)
                                 .commit();
         }
-
-        mRequestQueue = Volley.newRequestQueue(this);
 
         handleIntent(getIntent());
 
@@ -89,12 +83,8 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
 
     @Override
     public void onStop() {
-        mRequestQueue.cancelAll(new RequestQueue.RequestFilter() {
-            @Override
-            public boolean apply(Request<?> request) {
-                return true;
-            }
-        });
+        RequestManager.getInstance()
+                      .cancelAll(RequestManager.SEARCH_ARTIST);
         super.onStop();
     }
 
@@ -105,7 +95,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     }
 
     @Override
-    public void onResponse(ArtistResults artistResults) {
+    public void onResponse(Results artistResults) {
         final List<Result> results = artistResults.results != null ? artistResults.results : new ArrayList<Result>();
         updateResults(results);
     }
@@ -122,14 +112,15 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String searchQuery = intent.getStringExtra(SearchManager.QUERY);
-            final SearchArtistRequest searchArtistRequest = new SearchArtistRequest(searchQuery, this, this);
-            mRequestQueue.add(searchArtistRequest);
+
+            RequestManager.getInstance()
+                          .searchArtist(searchQuery, this, this);
 
         }
     }
 
     private void updateResults(List<Result> results) {
-        final SearchArtistFragment searchFragment = (SearchArtistFragment) getFragmentManager().findFragmentByTag(TAG_FRAGMENT_SEARCH);
+        final SearchArtistFragment searchFragment = (SearchArtistFragment) getFragmentManager().findFragmentByTag(FRAGMENT_SEARCH);
         if (searchFragment != null) {
             searchFragment.updateResults(results);
         }

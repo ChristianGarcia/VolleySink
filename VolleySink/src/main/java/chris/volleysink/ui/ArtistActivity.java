@@ -9,7 +9,8 @@ import chris.volleysink.R;
 
 public class ArtistActivity extends Activity {
 
-    public static final String EXTRA_ID = "extra_id";
+    public static final String EXTRA_ID        = "extra_id";
+    public static final String FRAGMENT_ARTIST = "fragment_artist";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +18,12 @@ public class ArtistActivity extends Activity {
         setContentView(R.layout.activity_artist);
 
         if (savedInstanceState == null) {
+            ArtistFragment artistFragment = new ArtistFragment();
             getFragmentManager().beginTransaction()
-                                .add(R.id.container, new ArtistFragment())
+                                .add(R.id.container, artistFragment, FRAGMENT_ARTIST)
                                 .commit();
         }
+
     }
 
     @Override
