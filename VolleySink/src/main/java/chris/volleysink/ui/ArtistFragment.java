@@ -10,6 +10,8 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import chris.volleysink.R;
+import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.Releases;
 
 /**
  * Fragment that holds the view of the Result detail
@@ -26,11 +28,23 @@ public class ArtistFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_artist, container, false);
-        ButterKnife.inject(rootView);
-
-        name.setText("Mierda");
+        ButterKnife.inject(this, rootView);
         return rootView;
+    }
+
+    public void updateArtistData(Artist artist) {
+
+    }
+
+    public void updateReleasesData(Releases releases) {
+
     }
 }
