@@ -20,9 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chris.volleysink.network.SearchArtistRequest;
-import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.Result;
 import chris.volleysink.network.model.ArtistResults;
-import chris.volleysink.R;
 
 public class SearchArtistActivity extends Activity implements Response.Listener<ArtistResults>, Response.ErrorListener {
 
@@ -100,7 +99,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
 
     @Override
     public void onResponse(ArtistResults artistResults) {
-        final List<Artist> results = artistResults.results != null ? artistResults.results : new ArrayList<Artist>();
+        final List<Result> results = artistResults.results != null ? artistResults.results : new ArrayList<Result>();
         updateResults(results);
     }
 
@@ -113,7 +112,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
         }
     }
 
-    private void updateResults(List<Artist> results) {
+    private void updateResults(List<Result> results) {
         final SearchArtistFragment searchFragment = (SearchArtistFragment) getFragmentManager().findFragmentByTag(TAG_FRAGMENT_SEARCH);
         if (searchFragment != null) {
             searchFragment.updateResults(results);

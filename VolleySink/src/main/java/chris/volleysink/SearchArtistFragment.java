@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.Result;
 
 /**
  * Created by christian on 01/02/2014.
@@ -21,8 +22,9 @@ import chris.volleysink.network.model.Artist;
  */
 public class SearchArtistFragment extends Fragment {
 
-    private ArrayAdapter<Artist> mListAdapter = null;
-    private List<Artist>         mResults     = new ArrayList<Artist>();
+    private ArrayAdapter<Result> mListAdapter = null;
+    private List<Result>         mResults     = new ArrayList<Result>();
+    private OnResultItemClickListener mOnResultItemClickListener;
 
     public SearchArtistFragment() {
     }
@@ -42,17 +44,30 @@ public class SearchArtistFragment extends Fragment {
             ListView listView = (ListView) rootView.findViewById(R.id.listView);
             final Activity activity = getActivity();
             if (activity != null) {
-                mListAdapter = new ArrayAdapter<Artist>(activity, android.R.layout.simple_list_item_1, android.R.id.text1, mResults);
+                mListAdapter = new ArrayAdapter<Result>(activity, android.R.layout.simple_list_item_1, android.R.id.text1, mResults);
                 listView.setAdapter(mListAdapter);
-                listView.setEmptyView(rootView.findViewById(android.R.id.empty));
+                View emptyView = rootView.findViewById(android.R.id.empty);
+                listView.setEmptyView(emptyView);
+                if (mOnResultItemClickListener != null) {
+                    listView.setOnItemClickListener(mOnResultItemClickListener);
+                }
             }
         }
         return rootView;
     }
 
-    public void updateResults(List<Artist> results) {
-        mResults = new ArrayList<Artist>(results);
+    public void updateResults(List<Result> results) {
+        mResults = new ArrayList<Result>(results);
         mListAdapter.clear();
         mListAdapter.addAll(mResults);
     }
+
+    public void setOnResultItemClickListener(OnResultItemClickListener mOnResultItemClickListener) {
+        this.mOnResultItemClickListener = mOnResultItemClickListener;
+    }
+
+    public static interface OnResultItemClickListener extends AdapterView.OnItemClickListener {
+
+    }
+
 }
