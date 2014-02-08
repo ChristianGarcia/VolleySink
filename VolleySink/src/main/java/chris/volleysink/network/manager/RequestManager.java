@@ -1,4 +1,4 @@
-package chris.volleysink.volley;
+package chris.volleysink.network.manager;
 
 import android.content.Context;
 
@@ -7,19 +7,19 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import chris.volleysink.network.SearchArtistRequest;
+import chris.volleysink.network.request.ArtistRequest;
+import chris.volleysink.network.request.SearchArtistRequest;
+import chris.volleysink.network.model.Artist;
 import chris.volleysink.network.model.Results;
 
 /**
- * Singleton that holds the {@link chris.volleysink.volley.RequestProxy}
+ * Singleton that makes and cancels requests}
  *
  * @author Christian
  */
 public class RequestManager {
 
     private static RequestManager instance;
-
-    public static final Object SEARCH_ARTIST = "search_artist";
 
     private RequestQueue mRequestQueue;
 
@@ -55,9 +55,14 @@ public class RequestManager {
     }
 
     public void searchArtist(String searchQuery, Response.Listener<Results> successListener, Response.ErrorListener errorListener) {
-        final SearchArtistRequest searchArtistRequest = new SearchArtistRequest(searchQuery, successListener, errorListener);
-        searchArtistRequest.setTag(RequestManager.SEARCH_ARTIST);
-        mRequestQueue.add(searchArtistRequest);
+        final SearchArtistRequest request = new SearchArtistRequest(searchQuery, successListener, errorListener);
+        mRequestQueue.add(request);
+    }
+
+    public void fetchArtist(int artistId, Response.Listener<Artist> listener, Response.ErrorListener errorListener) {
+        final ArtistRequest request = new ArtistRequest(artistId, listener, errorListener);
+        mRequestQueue.add(request);
+
     }
 
 }

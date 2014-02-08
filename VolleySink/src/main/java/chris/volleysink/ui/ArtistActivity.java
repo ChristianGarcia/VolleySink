@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import chris.volleysink.R;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
-public class ArtistActivity extends Activity {
+import chris.volleysink.R;
+import chris.volleysink.network.manager.RequestManager;
+import chris.volleysink.network.model.Artist;
+
+public class ArtistActivity extends Activity implements Response.Listener<Artist>, Response.ErrorListener {
 
     public static final String EXTRA_ID        = "extra_id";
     public static final String FRAGMENT_ARTIST = "fragment_artist";
@@ -23,6 +28,13 @@ public class ArtistActivity extends Activity {
                                 .add(R.id.container, artistFragment, FRAGMENT_ARTIST)
                                 .commit();
         }
+
+        int artistId = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (artistId > 0) {
+            RequestManager.getInstance()
+                          .fetchArtist(artistId, this, this);
+        }
+        // TODO decide what to do if no artist found
 
     }
 
@@ -47,4 +59,14 @@ public class ArtistActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResponse(Artist artist) {
+        ArtistFragment fragment = (ArtistFragment) getFragmentManager().findFragmentByTag(FRAGMENT_ARTIST);
+        fragment.updateArtistData(artist);
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError volleyError) {
+
+    }
 }
