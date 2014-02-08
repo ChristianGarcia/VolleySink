@@ -1,4 +1,4 @@
-package chris.volleysink.network;
+package chris.volleysink.network.request;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -10,6 +10,7 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
+import chris.volleysink.network.ApiUtils;
 import chris.volleysink.network.model.Results;
 
 /**
@@ -18,16 +19,22 @@ import chris.volleysink.network.model.Results;
  * Get Request to search artists
  */
 public class SearchArtistRequest extends Request<Results> {
+
+    public static final Object TAG = "search_artist";
+
     private final Response.Listener<Results> successListener;
 
     public SearchArtistRequest(String query, Response.Listener<Results> successListener, Response.ErrorListener errorListener) {
         super(Method.GET, buildUrl(query), errorListener);
+        setTag(TAG);
+
         this.successListener = successListener;
     }
 
     private static String buildUrl(String query) {
         @SuppressWarnings("ConstantConditions")
-        final String url = ApiUtils.builBasedUrl()
+        final String url = ApiUtils.builBaseUrl()
+                                   .appendPath("database")
                                    .appendPath("search")
                                    .appendQueryParameter("q", query)
                                    .appendQueryParameter("type", "artist")

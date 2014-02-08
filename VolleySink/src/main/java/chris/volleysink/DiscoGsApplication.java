@@ -2,7 +2,7 @@ package chris.volleysink;
 
 import android.app.Application;
 
-import chris.volleysink.volley.RequestManager;
+import chris.volleysink.network.manager.RequestManager;
 
 /**
  * Created by Christian on 2/6/14.

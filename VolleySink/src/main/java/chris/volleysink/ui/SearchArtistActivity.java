@@ -19,10 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chris.volleysink.R;
+import chris.volleysink.network.manager.RequestManager;
 import chris.volleysink.network.model.Result;
 import chris.volleysink.network.model.Results;
+import chris.volleysink.network.request.SearchArtistRequest;
 import chris.volleysink.util.IntentUtils;
-import chris.volleysink.volley.RequestManager;
 
 public class SearchArtistActivity extends Activity implements Response.Listener<Results>, Response.ErrorListener, SearchArtistFragment.OnResultItemClickListener {
 
@@ -84,7 +85,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     @Override
     public void onStop() {
         RequestManager.getInstance()
-                      .cancelAll(RequestManager.SEARCH_ARTIST);
+                      .cancelAll(SearchArtistRequest.TAG);
         super.onStop();
     }
 
@@ -109,6 +110,13 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
         }
     }
 
+    /**
+     * Executes the search artist request if que search action was executed.
+     * <p/>
+     * The response of the request will be handled in {@link #onResponse(chris.volleysink.network.model.Results)} or {@link #onErrorResponse(com.android.volley.VolleyError)}
+     *
+     * @param intent the intent triggered by the search action
+     */
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String searchQuery = intent.getStringExtra(SearchManager.QUERY);

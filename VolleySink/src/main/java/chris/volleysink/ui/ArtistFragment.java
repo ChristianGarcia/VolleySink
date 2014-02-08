@@ -41,7 +41,8 @@ public class ArtistFragment extends Fragment {
     }
 
     public void updateArtistData(Artist artist) {
-
+        name.setText(artist.getName());
+        profile.setText(artist.getProfile());
     }
 
     public void updateReleasesData(Releases releases) {
