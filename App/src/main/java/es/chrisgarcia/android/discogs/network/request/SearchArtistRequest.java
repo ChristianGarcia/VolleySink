@@ -1,4 +1,4 @@
-package chris.volleysink.network.request;
+package es.chrisgarcia.android.discogs.network.request;
 
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -10,8 +10,8 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
-import chris.volleysink.network.ApiUtils;
-import chris.volleysink.network.model.Results;
+import es.chrisgarcia.android.discogs.network.ApiUtils;
+import es.chrisgarcia.android.discogs.network.model.Results;
 
 /**
  * Created by christian on 01/02/2014.

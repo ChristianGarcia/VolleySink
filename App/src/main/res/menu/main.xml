@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="chris.volleysink.ui.SearchArtistActivity">
+      tools:context="es.chrisgarcia.android.discogs.ui.SearchArtistActivity">
 
     <item
         android:id="@+id/action_settings"

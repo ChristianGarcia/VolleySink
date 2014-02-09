@@ -1,4 +1,4 @@
-package chris.volleysink.ui;
+package es.chrisgarcia.android.discogs.ui;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.ViewSwitcher;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
-import chris.volleysink.R;
-import chris.volleysink.network.model.Artist;
-import chris.volleysink.network.model.Releases;
+import es.chrisgarcia.android.discogs.R;
+import es.chrisgarcia.android.discogs.network.model.Artist;
+import es.chrisgarcia.android.discogs.network.model.Releases;
 
 /**
  * Fragment that holds the view of the Result detail

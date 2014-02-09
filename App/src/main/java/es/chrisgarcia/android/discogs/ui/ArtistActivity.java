@@ -1,4 +1,4 @@
-package chris.volleysink.ui;
+package es.chrisgarcia.android.discogs.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import chris.volleysink.R;
-import chris.volleysink.network.manager.RequestManager;
-import chris.volleysink.network.model.Artist;
+import es.chrisgarcia.android.discogs.R;
+import es.chrisgarcia.android.discogs.network.manager.RequestManager;
+import es.chrisgarcia.android.discogs.network.model.Artist;
 
 public class ArtistActivity extends Activity implements Response.Listener<Artist>, Response.ErrorListener {
 

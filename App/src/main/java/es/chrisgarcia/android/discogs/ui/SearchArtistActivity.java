@@ -1,4 +1,4 @@
-package chris.volleysink.ui;
+package es.chrisgarcia.android.discogs.ui;
 
 import android.app.Activity;
 import android.app.SearchManager;
@@ -18,12 +18,12 @@ import com.android.volley.VolleyError;
 import java.util.ArrayList;
 import java.util.List;
 
-import chris.volleysink.R;
-import chris.volleysink.network.manager.RequestManager;
-import chris.volleysink.network.model.Result;
-import chris.volleysink.network.model.Results;
-import chris.volleysink.network.request.SearchArtistRequest;
-import chris.volleysink.util.IntentUtils;
+import es.chrisgarcia.android.discogs.R;
+import es.chrisgarcia.android.discogs.network.manager.RequestManager;
+import es.chrisgarcia.android.discogs.network.model.Result;
+import es.chrisgarcia.android.discogs.network.model.Results;
+import es.chrisgarcia.android.discogs.network.request.SearchArtistRequest;
+import es.chrisgarcia.android.discogs.util.IntentUtils;
 
 public class SearchArtistActivity extends Activity implements Response.Listener<Results>, Response.ErrorListener, SearchArtistFragment.OnResultItemClickListener {
 
@@ -113,7 +113,7 @@ public class SearchArtistActivity extends Activity implements Response.Listener<
     /**
      * Executes the search artist request if que search action was executed.
      * <p/>
-     * The response of the request will be handled in {@link #onResponse(chris.volleysink.network.model.Results)} or {@link #onErrorResponse(com.android.volley.VolleyError)}
+     * The response of the request will be handled in {@link #onResponse(es.chrisgarcia.android.discogs.network.model.Results)} or {@link #onErrorResponse(com.android.volley.VolleyError)}
      *
      * @param intent the intent triggered by the search action
      */

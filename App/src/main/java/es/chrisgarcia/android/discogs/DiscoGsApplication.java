@@ -1,8 +1,8 @@
-package chris.volleysink;
+package es.chrisgarcia.android.discogs;
 
 import android.app.Application;
 
-import chris.volleysink.network.manager.RequestManager;
+import es.chrisgarcia.android.discogs.network.manager.RequestManager;
 
 /**
  * Created by Christian on 2/6/14.
