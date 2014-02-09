@@ -8,6 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
 import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.Releases;
 import chris.volleysink.network.model.Results;
 import chris.volleysink.network.request.ArtistRequest;
 import chris.volleysink.network.request.ReleasesRequest;
@@ -65,7 +66,7 @@ public class RequestManager {
         mRequestQueue.add(request);
     }
 
-    public void fetchReleases(int artistId, Response.Listener<Artist> listener, Response.ErrorListener errorListener) {
+    public void fetchReleases(int artistId, Response.Listener<Releases> listener, Response.ErrorListener errorListener) {
         final ReleasesRequest request = new ReleasesRequest(artistId, listener, errorListener);
         mRequestQueue.add(request);
     }
