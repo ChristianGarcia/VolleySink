@@ -1,4 +1,4 @@
-package chris.volleysink.network;
+package es.chrisgarcia.android.discogs.network;
 
 import android.net.Uri;
 

@@ -1,4 +1,4 @@
-package chris.volleysink.network.model;
+package es.chrisgarcia.android.discogs.network.model;
 
 /**
  * Created by Christian on 2/6/14.

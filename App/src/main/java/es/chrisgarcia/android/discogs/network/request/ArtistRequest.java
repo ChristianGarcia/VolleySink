@@ -1,4 +1,4 @@
-package chris.volleysink.network.request;
+package es.chrisgarcia.android.discogs.network.request;
 
 import android.net.Uri;
 
@@ -12,8 +12,8 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
-import chris.volleysink.network.ApiUtils;
-import chris.volleysink.network.model.Artist;
+import es.chrisgarcia.android.discogs.network.ApiUtils;
+import es.chrisgarcia.android.discogs.network.model.Artist;
 
 /**
  * Created by Christian on 2/6/14.

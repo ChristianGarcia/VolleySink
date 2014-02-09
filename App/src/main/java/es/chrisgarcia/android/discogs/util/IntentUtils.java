@@ -1,9 +1,9 @@
-package chris.volleysink.util;
+package es.chrisgarcia.android.discogs.util;
 
 import android.content.Intent;
 
-import chris.volleysink.ui.ArtistActivity;
-import chris.volleysink.ui.SearchArtistActivity;
+import es.chrisgarcia.android.discogs.ui.ArtistActivity;
+import es.chrisgarcia.android.discogs.ui.SearchArtistActivity;
 
 /**
  * Class to start Intents

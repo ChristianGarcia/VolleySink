@@ -1,4 +1,4 @@
-package chris.volleysink.network.manager;
+package es.chrisgarcia.android.discogs.network.manager;
 
 import android.content.Context;
 
@@ -7,12 +7,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import chris.volleysink.network.model.Artist;
-import chris.volleysink.network.model.Releases;
-import chris.volleysink.network.model.Results;
-import chris.volleysink.network.request.ArtistRequest;
-import chris.volleysink.network.request.ReleasesRequest;
-import chris.volleysink.network.request.SearchArtistRequest;
+import es.chrisgarcia.android.discogs.network.model.Artist;
+import es.chrisgarcia.android.discogs.network.model.Releases;
+import es.chrisgarcia.android.discogs.network.model.Results;
+import es.chrisgarcia.android.discogs.network.request.ArtistRequest;
+import es.chrisgarcia.android.discogs.network.request.ReleasesRequest;
+import es.chrisgarcia.android.discogs.network.request.SearchArtistRequest;
 
 /**
  * Singleton that makes and cancels requests}

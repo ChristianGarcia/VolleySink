@@ -1,4 +1,4 @@
-package chris.volleysink.network.model;
+package es.chrisgarcia.android.discogs.network.model;
 
 import com.google.gson.annotations.SerializedName;
 

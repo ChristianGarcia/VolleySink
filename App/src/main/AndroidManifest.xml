@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="chris.volleysink"
+          package="es.chrisgarcia.android.discogs"
     >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="chris.volleysink.DiscoGsApplication"
+        android:name=".DiscoGsApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -34,7 +34,7 @@
         <activity
             android:name=".ui.ArtistActivity"
             android:label="@string/title_activity_artist"
-            android:parentActivityName="chris.volleysink.ui.SearchArtistActivity"
+            android:parentActivityName=".ui.SearchArtistActivity"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
