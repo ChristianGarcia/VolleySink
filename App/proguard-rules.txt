@@ -17,4 +17,6 @@
 #}
 -dontwarn butterknife.internal.InjectViewProcessor
 -dontwarn butterknife.internal.Listener
--dontwarn org.msgpack.*
+-dontwarn org.msgpack.template.builder.*
+-dontwarn org.msgpack.util.*
+-dontwarn org.msgpack.util.json.*
