@@ -32,19 +32,19 @@ if (System.getenv("storePath") != null) {
     android.signingConfigs.release.storeFile = file(storePath)
 }
 if (System.getenv("storePassword") != null) {
-    android.signingConfigs.release.storeFile = file(System.getenv("storePassword"))
+    android.signingConfigs.release.storePassword = System.getenv("storePassword")
 } else if (project.hasProperty("storePassword")) {
-    android.signingConfigs.release.storeFile = file(storePassword)
+    android.signingConfigs.release.storePassword = storePassword
 }
 if (System.getenv("keyAlias") != null) {
-    android.signingConfigs.release.storeFile = file(System.getenv("keyAlias"))
+    android.signingConfigs.release.keyAlias = System.getenv("keyAlias")
 } else if (project.hasProperty("keyAlias")) {
-    android.signingConfigs.release.storeFile = file(keyAlias)
+    android.signingConfigs.release.keyAlias = keyAlias
 }
 if (System.getenv("keyPassword") != null) {
-    android.signingConfigs.release.storeFile = file(System.getenv("keyPassword"))
+    android.signingConfigs.release.keyPassword = System.getenv("keyPassword")
 } else if (project.hasProperty("keyPassword")) {
-    android.signingConfigs.release.storeFile = file(keyPassword)
+    android.signingConfigs.release.keyPassword = keyPassword
 }
 
 
