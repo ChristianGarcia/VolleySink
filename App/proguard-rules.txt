@@ -16,3 +16,4 @@
 #   public *;
 #}
 -dontwarn butterknife.internal.InjectViewProcessor
+-dontwarn butterknife.internal.Listener
