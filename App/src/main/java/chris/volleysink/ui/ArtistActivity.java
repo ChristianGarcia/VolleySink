@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -34,7 +35,7 @@ public class ArtistActivity extends Activity implements Response.Listener<Artist
             RequestManager.getInstance()
                           .fetchArtist(artistId, this, this);
         }
-        // TODO decide what to do if no artist found
+        // TODO decide what to do if no artistId found
 
     }
 
@@ -67,6 +68,7 @@ public class ArtistActivity extends Activity implements Response.Listener<Artist
 
     @Override
     public void onErrorResponse(VolleyError volleyError) {
-
+        Toast.makeText(this, "Unable to load artist", Toast.LENGTH_SHORT)
+             .show();
     }
 }
