@@ -19,9 +19,11 @@ android {
             runProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             zipAlign true
+            buildConfigField "String", "TESTFLIGHT_APP_KEY", "\"d0682cc1-8711-46b6-b09b-60d42feb3dbb\""
         }
         debug {
             runProguard false
+            buildConfigField "String", "TESTFLIGHT_APP_KEY", "\"d0682cc1-8711-46b6-b09b-60d42feb3dbb\""
         }
     }
 }
