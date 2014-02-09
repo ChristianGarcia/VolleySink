@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -24,6 +25,9 @@ public class ArtistFragment extends Fragment {
     @InjectView(R.id.artist_profile)
     TextView profile;
 
+    @InjectView(R.id.switch_artist)
+    ViewSwitcher switcherArtist;
+
     public ArtistFragment() {
     }
 
@@ -40,9 +44,16 @@ public class ArtistFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        switcherArtist.showNext();
+    }
+
     public void updateArtistData(Artist artist) {
         name.setText(artist.getName());
         profile.setText(artist.getProfile());
+        switcherArtist.showNext();
     }
 
     public void updateReleasesData(Releases releases) {
