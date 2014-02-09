@@ -12,33 +12,31 @@ import com.google.gson.JsonSyntaxException;
 
 import java.io.UnsupportedEncodingException;
 
-import chris.volleysink.network.ApiUtils;
-import chris.volleysink.network.model.Artist;
+import chris.volleysink.network.model.Releases;
 
 /**
  * Created by Christian on 2/6/14.
  */
-public class ArtistRequest extends Request<Artist> {
-    private static final Object TAG = "artist";
-    private final Response.Listener<Artist> mListener;
+public class ReleasesRequest extends Request<Releases> {
+    private static final Object TAG = "releases";
+    private final Response.Listener<Releases> mListener;
 
-    public ArtistRequest(int artistId, Response.Listener<Artist> listener, Response.ErrorListener errorListener) {
+    public ReleasesRequest(int artistId, Response.Listener<Releases> listener, Response.ErrorListener errorListener) {
         super(Method.GET, buildUrl(artistId).toString(), errorListener);
         setTag(TAG);
         mListener = listener;
     }
 
     static Uri.Builder buildUrl(int artistId) {
-        return ApiUtils.builBaseUrl()
-                       .appendPath("artists")
-                       .appendPath(String.valueOf(artistId));
+        return ArtistRequest.buildUrl(artistId)
+                            .appendPath("releases");
     }
 
     @Override
-    protected Response<Artist> parseNetworkResponse(NetworkResponse response) {
+    protected Response<Releases> parseNetworkResponse(NetworkResponse response) {
         try {
             String jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-            Artist artist = new Gson().fromJson(jsonString, Artist.class);
+            Releases artist = new Gson().fromJson(jsonString, Releases.class);
             return Response.success(artist, HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {
             return Response.error(new ParseError(e));
@@ -48,7 +46,7 @@ public class ArtistRequest extends Request<Artist> {
     }
 
     @Override
-    protected void deliverResponse(Artist artist) {
-        mListener.onResponse(artist);
+    protected void deliverResponse(Releases releases) {
+        mListener.onResponse(releases);
     }
 }

@@ -7,10 +7,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
-import chris.volleysink.network.request.ArtistRequest;
-import chris.volleysink.network.request.SearchArtistRequest;
 import chris.volleysink.network.model.Artist;
 import chris.volleysink.network.model.Results;
+import chris.volleysink.network.request.ArtistRequest;
+import chris.volleysink.network.request.ReleasesRequest;
+import chris.volleysink.network.request.SearchArtistRequest;
 
 /**
  * Singleton that makes and cancels requests}
@@ -62,7 +63,11 @@ public class RequestManager {
     public void fetchArtist(int artistId, Response.Listener<Artist> listener, Response.ErrorListener errorListener) {
         final ArtistRequest request = new ArtistRequest(artistId, listener, errorListener);
         mRequestQueue.add(request);
+    }
 
+    public void fetchReleases(int artistId, Response.Listener<Artist> listener, Response.ErrorListener errorListener) {
+        final ReleasesRequest request = new ReleasesRequest(artistId, listener, errorListener);
+        mRequestQueue.add(request);
     }
 
 }
