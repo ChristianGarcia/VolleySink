@@ -1,4 +1,4 @@
-VolleySink
-==========
+Discogs
+=======
 
-Usage of Volley API
+Discogs Android App as an implementation of the Discogs API
