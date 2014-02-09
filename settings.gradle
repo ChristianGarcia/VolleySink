@@ -1,1 +1,1 @@
-include ':VolleyTest'
+include 'App'
