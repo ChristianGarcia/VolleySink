@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VolleySink</string>
+    <string name="action_settings">Settings</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Enter artist name</string>
+    <string name="title_activity_artist">ArtistActivity</string>
+    <string name="placeholder_name">Name</string>
+    <string name="placeholder_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis diam sit amet suscipit ullamcorper. Curabitur interdum eros eget varius tristique. Ut tempor metus metus, sed ornare leo porttitor et. Fusce quis molestie est. Nullam id ipsum convallis, hendrerit nisl sodales, congue nibh. Praesent hendrerit lectus nunc, non placerat nulla iaculis nec. Praesent commodo lobortis ipsum, nec interdum dui malesuada et. Aliquam ac cursus ipsum, vitae accumsan tellus. Quisque auctor luctus purus vel egestas. Integer nec dictum urna. Etiam congue tortor venenatis lectus gravida sagittis in ut felis. Aenean feugiat magna ut vestibulum congue. Sed interdum eu quam a imperdiet.</string>
+
+</resources>
