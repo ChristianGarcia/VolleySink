@@ -1,5 +1,8 @@
 apply plugin: 'android'
 
+int baseVersionCode = 1
+String baseVersionName = "1.0"
+
 android {
     compileSdkVersion 19
     buildToolsVersion '19.0.1'
@@ -7,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode baserVersionCode
+        versionName baserVersionName + System.getenv("versionNameSuffix")
     }
     signingConfigs {
         release
