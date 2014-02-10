@@ -2,6 +2,7 @@ package es.chrisgarcia.android.discogs;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.testflightapp.lib.TestFlight;
 
 import es.chrisgarcia.android.discogs.network.manager.RequestManager;
@@ -16,8 +17,16 @@ public class DiscoGsApplication extends Application {
         super.onCreate();
 
         initVolleyRequestManager();
+        initCrashlytics();
         initTestFlight();
 
+    }
+
+    /**
+     * Initializes Crashlytics
+     */
+    private void initCrashlytics() {
+        Crashlytics.start(this);
     }
 
     /**

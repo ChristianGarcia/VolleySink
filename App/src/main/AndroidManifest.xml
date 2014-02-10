@@ -42,6 +42,12 @@
                 android:value="SearchArtistActivity"
                 />
         </activity>
+
+        <meta-data
+            android:name="com.crashlytics.ApiKey"
+            android:value="4e3cab90ecea97b8aa8267a6fcbca2d1bcae25e7"
+            />
+
     </application>
 
 </manifest>

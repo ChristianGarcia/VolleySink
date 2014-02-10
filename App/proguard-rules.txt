@@ -20,3 +20,4 @@
 -dontwarn org.msgpack.template.builder.*
 -dontwarn org.msgpack.util.*
 -dontwarn org.msgpack.util.json.*
+-keepattributes SourceFile,LineNumberTable
