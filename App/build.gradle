@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 19
-        versionCode baserVersionCode
-        versionName baserVersionName + System.getenv("versionNameSuffix")
+        versionCode baseVersionCode
+        versionName baseVersionName + (System.getenv("versionNameSuffix") ? System.getenv("versionNameSuffix") : "_ECLIPSE")
     }
     signingConfigs {
         release
