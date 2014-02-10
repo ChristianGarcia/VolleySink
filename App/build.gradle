@@ -1,4 +1,5 @@
 apply plugin: 'android'
+apply plugin: 'crashlytics'
 
 int baseVersionCode = 1
 String baseVersionName = "1.0"
@@ -53,10 +54,15 @@ if (System.getenv("keyPassword") != null) {
 }
 
 
+repositories {
+    mavenCentral()
+    maven { url 'http://download.crashlytics.com/maven' }
 
+}
 dependencies {
     compile files('libs/volley.jar')
     compile files('libs/TestFlightLib.jar')
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.jakewharton:butterknife:4.0.1'
+    compile 'com.crashlytics.android:crashlytics:1.+'
 }
